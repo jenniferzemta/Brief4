@@ -26,3 +26,38 @@ include "C:/wamp64/www/CRUD/views/layouts/header.php";
 <?php
 include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
     ?>
+<div class="flex justify-center items-center flex-grow bg-gray-100">
+        <div class="bg-white rounded-2xl shadow-lg w-1/3 p-4">
+             <div class="flex flex-col items-center pb-4 border-b">
+                <!-- <img src="https://via.placeholder.com/100" alt="Profile Picture" class="w-24 h-24 rounded-full object-cover mb-4"> -->
+                <h2 class="text-xl font-semibold">Your name</h2>
+                <p class="text-gray-500">yourname@gmail.com</p>
+            </div> 
+
+            <div class="py-4 space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Nom</span>
+                    <span>Your name</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Email</span>
+                    <span>yourname@gmail.com</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Téléphone</span>
+                    <span>Add number</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Adresse</span>
+                    <span>USA</span>
+                </div>
+            </div>
+
+            <button class="w-full mt-4 py-2 rounded-xl bg-gradient-to-r from-red-500 to-blue-500 text-white font-semibold">Modifier</button>
+        </div>
+    </div>
+
+
+
+    </body>
+    </html>

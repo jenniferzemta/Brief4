@@ -30,6 +30,12 @@ switch ($action) {
         $id = $_GET['id'];
         $controller->supprimerContact($id);
         break;
+    case 'register':
+        $authController->Register();
+        break;
+    case 'login':
+         $authController->Login();
+         break;
     case 'CreateUser':
         $controller2->CreateUser();
         break;
@@ -46,11 +52,7 @@ switch ($action) {
         $id = $_GET['id'];
         $controller2->deleteUser($id);
         break;
-    case 'login':
-        $authController->login();
-        // case 'listeUsers':
-        //     $controller2->listeUsers();
-        //     break;
+
     case 'logout':
         $authController->logout();
         break;

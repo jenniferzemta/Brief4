@@ -43,6 +43,12 @@ public function createUser($username, $email, $password, $role_id) {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function emailExists($email) {
+        $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute(['email' => $email]);
+        return $stmt->fetchColumn() > 0;
+    }
     
     // delete
     public function deleteUser($id) {

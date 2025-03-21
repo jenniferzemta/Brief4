@@ -11,34 +11,35 @@
 <body class="flex items-center justify-center min-h-screen bg-[#FFC0CB]">
     <div class="bg-white p-8  m-10 w-96">
         <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
-        <form action="register" method="post">
+        <form  method="post">
             <div class="mb-4 pb-2">
                 <label for="name" class="block font-mono text-black">Nom</label>
-                <input type="text" id="name" placeholder="Votre nom" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" name="username" id="name" placeholder="Votre nom" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <div class="mb-4 pb-2">
                 <label for="email" class="block font-mono text-black">Email</label>
-                <input type="email" id="email" placeholder="Votre email" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email"  name="email" id="email" placeholder="Votre email" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
             <div class="mb-4 pb-2 ">
                 <label for="role" class="block  font-mono text-black">Role</label>
-                <select id="role" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <option>Utilisateur</option>
-                    <option>Admin</option>
-                    <option>Modérateur</option>
+                <select id="role" name="role_id" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <?php foreach ($roles as $role): ?>
+                    <option>  </option>
+            <option value="<?= $role['id'] ?>"><?= $role['name'] ?></option>
+        <?php endforeach; ?>
                 </select>
             </div>
             <div class="mb-4 pb-2">
                 <label for="password" class="block font-mono text-black">Mot de passe</label>
-                <input type="password" id="password" placeholder="Votre mot de passe" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" name="password" id="password" placeholder="Votre mot de passe" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
-            <div class="mb-4 pb-2">
+            <!-- <div class="mb-4 pb-2">
                 <label for="confirm-password" class="block font-mono text-black">Confirm mdp</label>
                 <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
+            </div> -->
             <div class="mb-6 pb-2">
                 <label for="status" class="block text-black  font-mono">Status</label>
-                <select id="status" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <select id="status" name="status" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option>Actif</option>
                     <option>Inactif</option>
                 </select>

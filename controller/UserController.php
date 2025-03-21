@@ -38,6 +38,7 @@ class UserController {
             } else {
                 if ($this->model->createUser($username, $email, $password, $role_id)) {
                     echo "Utilisateur ajouté avec succès!";
+                    header ("Location : listeUsers");
                 } else {
                     echo "Erreur lors de l'ajout de l'utilisateur.";
                 }
