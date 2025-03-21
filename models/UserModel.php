@@ -12,23 +12,23 @@ class UserModel {
     //     $stmt = $this->pdo->prepare($sql);
     //     return $stmt->execute(['username' => $username, 'email' => $email, 'password' => $password ,'role_id'=>$role_id]);
     // }
-    public function createUser($username, $email, $password, $role_id) {
-        try {
-            $sql = "INSERT INTO users (username, email, password, role_id) VALUES (:username, :email, :password, :role_id)";
-            $stmt = $this->pdo->prepare($sql);
-            return $stmt->execute([
-                'username' => $username,
-                'email' => $email,
-                'password' => $password,
-                'role_id' => $role_id
-            ]);
-        } catch (PDOException $e) {
-            if ($e->getCode() === '23000') { // Code d'erreur pour les violations de contrainte d'unicité
-                return false; // Ou affichez un message d'erreur
-            }
-            throw $e; // Relancez l'exception si ce n'est pas une violation de contrainte d'unicité
+public function createUser($username, $email, $password, $role_id) {
+    try {
+        $sql = "INSERT INTO users (username, email, password, role_id) VALUES (:username, :email, :password, :role_id)";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            'username' => $username,
+            'email' => $email,
+            'password' => $password,
+            'role_id' => $role_id
+        ]);
+    } catch (PDOException $e) {
+        if ($e->getCode() === '23000') { // Code d'erreur pour les violations de contrainte d'unicité
+            return false; // Ou affichez un message d'erreur
         }
+        throw $e; // Relancez l'exception si ce n'est pas une violation de contrainte d'unicité
     }
+}
     // update
     public function updateUser($userId, $username, $email,$password) {
         $sql = "UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id";

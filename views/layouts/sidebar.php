@@ -10,7 +10,7 @@
                     </div>
                     <div class="mt-4">
                         <ul class="ml-4 space-y-2">
-                            <li><a href="users.php" class="block text-sm hover:text-blue-300"><i class="fas fa-users"></i> Users</a></li>
+                            <li><a href="listeUsers" class="block text-sm hover:text-blue-300"><i class="fas fa-users"></i> Users</a></li>
                     
                         </ul>
                     </div>
@@ -24,7 +24,14 @@
                     <div class="mt-4">
             
                         <ul class="ml-4 space-y-2">
-                            <li><a href="profile.php" class="block text-sm hover:text-blue-300"><i class="fas fa-user-circle"></i> Profile</a></li>
+                            <li><a href="profile" class="block text-sm hover:text-blue-300"><i class="fas fa-user-circle"></i> Profile</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-4">
+            
+                        <ul class="ml-4 space-y-2">
+                            <li><a href="logout" class="block text-sm hover:text-blue-300"><i class="fas fa-user-circle"></i> Deconnexion</a></li>
                         </ul>
                     </div>
                 </nav>

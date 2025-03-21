@@ -45,7 +45,7 @@ class UserController {
         } else {
             $roles = $this->model->getRoles();
                $users = $this->model->getAllUsers();
-              print_r($users); // Affiche les utilisateurs pour vérifier
+           //   print_r($users); // Affiche les utilisateurs pour vérifier
             include '../views/admin/users.php';
         }
     }
@@ -80,11 +80,11 @@ class UserController {
                 echo "Erreur lors de la modification.";
             }
         }
-    
-        //  print_r($users); // Affiche les utilisateurs pour vérifier
+        $roles = $this->model->getRoles();
+        $users = $this->model->getAllUsers();
         $user= $this->model->getUserById($id);
         print_r($user);
-        include '../views/admin/updateUser.php';
+        include '../views/admin/users.php';
         
     }
 
@@ -96,15 +96,18 @@ class UserController {
 
  
     // delete user
-
-    // Supprimer un contact
     public function deleteUser($id) {
         if ($this->model->deleteUser($id)) {
-            header("Location: listeUsers");
+            header("Location: CreateUser");
+          
         } else {
-            echo "<script>Erreur lors de la suppression de l'user.</script>";
+            echo "Erreur lors de la suppression du contact.";
         }
-    }
+    } 
+
+
+    // Supprimer un contact
+ 
     
     // public function updateProfile() {
     //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -37,3 +37,8 @@ CREATE TABLE sessions (
     logout_time TIMESTAMP NULL,
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
+
+
+executer le projet avec le fichier index.php
+placer le fichier dans votre htdocs de xammp ou www de wamp
+http://localhost/CRUD/public/index.php
