@@ -24,13 +24,6 @@ class AdminController {
         include '../views/admin/dashboard.php';
     }
 
-    public function updateUserStatus($userId, $status) {
-        if ($this->model->updateUserStatus($userId, $status)) {
-            header('Location: /admin/dashboard');
-        } else {
-            echo "Erreur lors de la mise à jour du statut.";
-        }
-    }
 
 
     // public function updateUserRole($userId, $roleId) {

@@ -30,22 +30,22 @@ include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
         <div class="bg-white rounded-2xl shadow-lg w-1/3 p-4">
              <div class="flex flex-col items-center pb-4 border-b">
                 <!-- <img src="https://via.placeholder.com/100" alt="Profile Picture" class="w-24 h-24 rounded-full object-cover mb-4"> -->
-                <h2 class="text-xl font-semibold">Your name</h2>
-                <p class="text-gray-500">yourname@gmail.com</p>
+                <h2 class="text-xl font-semibold"><?= htmlspecialchars($user['name']) ?></h2>
+                <p class="text-gray-500"><?= htmlspecialchars($user['email']) ?></p>
             </div> 
 
             <div class="py-4 space-y-3">
                 <div class="flex justify-between">
                     <span class="text-gray-500">Nom</span>
-                    <span>Your name</span>
+                    <span><?= htmlspecialchars($user['name']) ?></span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500">Email</span>
-                    <span>yourname@gmail.com</span>
+                    <span><?= htmlspecialchars($user['email']) ?></span>
                 </div>
                 <div class="flex justify-between">
-                    <span class="text-gray-500">Téléphone</span>
-                    <span>Add number</span>
+                    <span class="text-gray-500">Role</span>
+                    <span><?= htmlspecialchars($user['name']) ?></span>
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500">Adresse</span>

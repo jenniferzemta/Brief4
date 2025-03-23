@@ -18,9 +18,9 @@
                 <label for="password" class="block  text-black font-mono ">Password</label>
                 <input type="password" name="password"  id="password" placeholder="Enter Password" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
-            <div class="flex justify-between items-center pb-2 mb-4">
+            <!-- <div class="flex justify-between items-center pb-2 mb-4">
                 <a href="#" class="text-sm font-mono text-right text-gray-500 hover:text-blue-600">Forgot password?</a>
-            </div>
+            </div> -->
             <button type="submit" class="w-full py-2 text-white bg-gradient-to-r from-[#FF2F33] to-[#0A05EB] rounded-md hover:from-red-600 hover:to-blue-600">Login</button>
         </form>
         <p class="mt-4 text-center font-sans text-gray-500">Don't have an account yet? <a href="register.php" class="text-blue-600 hover:underline">Register</a></p>

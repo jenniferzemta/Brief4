@@ -32,9 +32,9 @@ switch ($action) {
         $id = $_GET['id'];
         $controller->supprimerContact($id);
         break;
-    case 'register':
-        $authController->Register();
-        break;
+    // case 'register':
+    //     $authController->Register();
+    //     break;
     case 'login':
          $authController->Login();
          break;
@@ -62,11 +62,7 @@ switch ($action) {
     case 'logout':
         $authController->logout();
         break;
-    case 'updateUserStatus':
-        $id = $_GET['id'];
-        $status = $_GET['status'];
-        $adminController->updateUserStatus($id, $status);
-        break;
+   
     // case 'updateUserRole':
     //     $id = $_GET['id'];
     //     $roleId = $_GET['role_id'];

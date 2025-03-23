@@ -19,10 +19,10 @@ public function CreateUser() {
             echo "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.";
         } else {
             if ($this->model->createUser($username, $email, $password, $role_id)) {
-                echo "<script>Utilisateur ajouté avec succès!</script>";
+                echo "<script>alert('Utilisateur ajouté avec succès!')</script>";
                 header ("Location : CreateUser");
             } else {
-                echo "<script>Erreur lors de l'ajout de l'utilisateur.</script>";
+                echo "<script>alert('Erreur lors de l'ajout de l'utilisateur.')</script>";
             }
         }
     } else {
@@ -61,11 +61,11 @@ public function CreateUser() {
           
 
             if ($this->model->updateUser($id, $username, $email, $password, $role, status: $status)) {
-                echo "<script>Un User modifié avec succès!</script>";
+                echo "<script>alert('Utilisateur modifié avec succès!')</script>";
                 header("Location: CreateUser");
                 exit();
             } else {
-                echo "<script>Erreur lors de la modification.</script>";
+                echo "<script>alert('Erreur lors de la modification.')</script>";
             }
         }
         $roles = $this->model->getRoles();
@@ -89,7 +89,7 @@ public function CreateUser() {
             header("Location: CreateUser");
           
         } else {
-            echo "Erreur lors de la suppression du contact.";
+            echo "Erreur lors de la suppression.";
         }
     } 
 
