@@ -30,10 +30,10 @@ public function createUser($username, $email, $password, $role_id) {
     }
 }
     // update
-    public function updateUser($userId, $username, $email,$password) {
-        $sql = "UPDATE users SET username = :username, email = :email, password = :password WHERE id = :id";
+    public function updateUser($userId, $username, $email, $password, $role_id ,$status) {
+        $sql = "UPDATE users SET username = :username, email = :email, password = :password , role_id = :role_id, status = :status  WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute(['username' => $username, 'email' => $email,'password' => $password, 'id' => $userId]);
+        return $stmt->execute(['username' => $username, 'email' => $email,  'password' => $password, 'role_id'=> $role_id ,  'status'=> $status ,'id' => $userId]);
     }
 
     public function getUserById($id) {
@@ -100,5 +100,17 @@ public function createUser($username, $email, $password, $role_id) {
         return $stmt->execute(['status' => $status, 'id' => $userId]);
     }
 
+
+    // dashboard
+    public function countAdmins() {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM users WHERE role_id = (SELECT id FROM roles WHERE name = 'Administrateur')");
+        return $stmt->fetch()['count'];
+    }
+
+    // Compter le nombre de clients
+    public function countClients() {
+        $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM users WHERE role_id = (SELECT id FROM roles WHERE name = 'Client')");
+        return $stmt->fetch()['count'];
+    }
     
 }

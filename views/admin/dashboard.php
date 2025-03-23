@@ -1,4 +1,8 @@
 
+<?php
+include "C:/wamp64/www/CRUD/views/layouts/header.php";
+    ?>
+
 <body class="bg-white">
     <!-- Navbar -->
     <div class="flex font-mono justify-between items-center bg-[#3886F2] p-4 text-white">
@@ -20,18 +24,22 @@
         </div>
     </div>
 
+    <!-- sidebar -->
+<?php
+include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
+    ?>
         <!-- Main Content -->
         <main class="flex-1 p-6">
             <div class="grid grid-cols-4 gap-4">
                 <div class="bg-green-500 p-6 text-white rounded-lg shadow-lg">
                     <i class="fas fa-user-shield fa-2x"></i>
                     <h2 class="mt-2">Admins</h2>
-                    <p class="text-3xl">2</p>
+                    <p class="text-3xl"><?= $adminCount ?></p>
                 </div>
                 <div class="bg-pink-400 p-6 text-white rounded-lg shadow-lg">
                     <i class="fas fa-users fa-2x"></i>
                     <h2 class="mt-2">Clients</h2>
-                    <p class="text-3xl">10</p>
+                    <p class="text-3xl"><?= $clientCount ?></p>
                 </div>
                 
             </div>
@@ -39,5 +47,10 @@
     </div>
 
  
+    
+    <?php
+include "C:/wamp64/www/CRUD/views/layouts/footer.php";
+    ?>
+
 </body>
 </html>

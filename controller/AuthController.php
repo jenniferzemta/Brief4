@@ -1,9 +1,13 @@
 <?php 
+
 class AuthController {
     private $model;
+  //  private $sessionModel;
 
     public function __construct($pdo) {
         $this->model = new UserModel($pdo);
+        //$this->sessionModel = new SessionModel($pdo);
+        
     }
     public function Register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -13,7 +17,7 @@ class AuthController {
             $role_id = $_POST['role_id'];
     
             if ($this->model->usernameExists($username)) {
-                echo "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.";
+                echo " <script>Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.</script>";
             } else {
                 if ($this->model->createUser($username, $email, $password, $role_id)) {
                     echo "<script> Utilisateur ajouté avec succès!</script>";
@@ -60,7 +64,15 @@ class AuthController {
                 session_start();
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['role'] = $user['role_id'];
-                header('Location: listeUsers');
+                if ($user['role_id']== 1){
+                header('Location: CreateUser');
+                } else{
+                    echo "<script> Connectez vous</script>";
+                    header('Location : login ');
+                }
+                // $session_id = $this->sessionModel->logLogin($user['id']);
+                // $_SESSION['session_id'] = $session_id;
+
             } else {
                 echo "Identifiants incorrects.";
             }
@@ -68,10 +80,10 @@ class AuthController {
             include '../views/auth/login.php';
         }
     }
-
+// deconnexion
     public function logout() {
         session_start();
         session_destroy();
-        header('Location: /login');
+        header('Location: login');
     }
 }

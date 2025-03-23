@@ -7,85 +7,72 @@ class UserController {
     public function __construct($pdo) {
         $this->model = new UserModel($pdo);
     }
-// creer 
-    // public function CreateUser() {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $username = $_POST['username'];
-    //         $email = $_POST['email'];
-    //         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-    //         $role_id= $_POST['role_id'];
+// creer
+public function CreateUser() {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $role_id = $_POST['role_id'];
 
-    //         if ($this->model->createUser($username, $email, $password,$role_id)) {
-    //             echo "User ajouté avec succès!";
-    //         } else {
-    //             echo "Erreur lors de l'ajout du contact.";
-    //         }
-    //     }// Récupérer les rôles depuis la base de données
-    //     $roles = $this->model->getRoles();
-    //     $users = $this->model->getAllUsers();
-    //     // print_r($users); // Affiche les utilisateurs pour vérifier
-    //     include '../views/admin/users.php';
-    // }
-    public function CreateUser() {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $email = $_POST['email'];
-            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $role_id = $_POST['role_id'];
-    
-            if ($this->model->usernameExists($username)) {
-                echo "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.";
-            } else {
-                if ($this->model->createUser($username, $email, $password, $role_id)) {
-                    echo "Utilisateur ajouté avec succès!";
-                    header ("Location : listeUsers");
-                } else {
-                    echo "Erreur lors de l'ajout de l'utilisateur.";
-                }
-            }
+        if ($this->model->usernameExists($username)) {
+            echo "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.";
         } else {
-            $roles = $this->model->getRoles();
-               $users = $this->model->getAllUsers();
-           //   print_r($users); // Affiche les utilisateurs pour vérifier
-            include '../views/admin/users.php';
+            if ($this->model->createUser($username, $email, $password, $role_id)) {
+                echo "<script>Utilisateur ajouté avec succès!</script>";
+                header ("Location : CreateUser");
+            } else {
+                echo "<script>Erreur lors de l'ajout de l'utilisateur.</script>";
+            }
         }
+    } else {
+        $roles = $this->model->getRoles();
+           $users = $this->model->getAllUsers();
+         // print_r($users); // Affiche les utilisateurs pour vérifier
+        include '../views/admin/users.php';
     }
-    // public function listeUsers() {
-    //     $users = $this->model->getAllUsers();
-    //     include '../views/admin/users.php';
-    // }
-//
-
+}
+//profile
     public function profile() {
-        if (!isset($_SESSION['user_id'])) {
-            header('Location: /auth/login');
+        // if (!isset($_SESSION['user_id'])) {
+        //     header('Location: profile');
+        //     exit;
+        // }
+        if (isset($_SESSION['user_id'])) {
+            header('Location: profile');
             exit;
         }
 
+
         $user = $this->model->getUserById($_SESSION['user_id']);
-        include '../views/user/profile.php';
+        include '../views/admin/profile.php';
     }
+
+
     // modifier user
 
     public function updateUser($id) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = $_POST['username'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
-            // $role = $_POST['role_id'];
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $role = $_POST['role_id'];
+            $status = $_POST['status'];
           
 
-            if ($this->model->updateUser($id, $username, $email, $password)) {
+            if ($this->model->updateUser($id, $username, $email, $password, $role, status: $status)) {
                 echo "<script>Un User modifié avec succès!</script>";
+                header("Location: CreateUser");
+                exit();
             } else {
-                echo "Erreur lors de la modification.";
+                echo "<script>Erreur lors de la modification.</script>";
             }
         }
         $roles = $this->model->getRoles();
-        $users = $this->model->getAllUsers();
+      //  $users = $this->model->getAllUsers();
         $user= $this->model->getUserById($id);
         print_r($user);
-        include '../views/admin/users.php';
+        include '../views/admin/updateUser.php';
         
     }
 
@@ -107,21 +94,23 @@ class UserController {
     } 
 
 
-    // Supprimer un contact
- 
-    
+//   updateProfile
     // public function updateProfile() {
     //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     //         $username = $_POST['username'];
     //         $email = $_POST['email'];
+    //         $password = $_POST['password'];
 
-    //         if ($this->model->updateUser($_SESSION['user_id'], $username, $email)) {
-    //             header('Location: /user/profile');
+    //         if ($this->model->updateUser($_SESSION['user_id'], $username, $email, $password)) {
+    //             header('Location: profile');
     //         } else {
     //             echo "Erreur lors de la mise à jour du profil.";
     //         }
     //     }
  
     // }
+//  dashboard
+         
+    
     
 }

@@ -9,8 +9,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="flex items-center justify-center min-h-screen bg-[#FFC0CB]">
-    <div class="bg-white p-8  m-10 w-96">
-        <h2 class="text-2xl font-bold mb-6 text-center">Register</h2>
+    <div class="bg-white p-8 input-validator m-10 w-96">
+        <h2 class="text-2xl font-bold mb-6  text-center">Register</h2>
         <form  method="post">
             <div class="mb-4 pb-2">
                 <label for="name" class="block font-mono text-black">Nom</label>

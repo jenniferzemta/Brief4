@@ -8,7 +8,6 @@
             <span class="font-bold text-xl">Digital Solutions</span>
         </div>
        
-
         <div class="flex items-center space-x-2">
         <div class="relative">
             <input type="text" placeholder="Search here" class="p-2 pl-20 rounded-lg text-black border border-gray-300" />
@@ -47,13 +46,10 @@
                 </tr>
                 <?php foreach ($logs as $log): ?>
                     <tr class="border-b border-gray-200 hover:bg-gray-100" >
-                        <td class="py-3 px-6"><?= $log['username'] ?></td>
-                        <td class="py-3 px-6"><?= $log['login_time'] ?></td>
-                        <td class="py-3 px-6">
-                            <span class="px-2 py-1 rounded-full <?= $log['status'] === 'success' ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800' ?>">
-                                <?= $log['status'] === 'success' ? 'Réussi' : 'Échoué' ?>
-                            </span>
-                        </td>
+                        <td class="py-3 px-6"><?= htmlspecialchars ($log['username'] )?></td>
+                        <td class="py-3 px-6"><?= htmlspecialchars($log['login_time']) ?></td>
+                        <td class="py-3 px-6"><?= htmlspecialchars($log['logout_time']) ?? 'En cours' ?></td>
+                        
                     </tr>
                     
                 <?php endforeach; ?>

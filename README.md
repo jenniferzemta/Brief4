@@ -98,6 +98,46 @@ class AuthController {
         header('Location: /dashboard');
     }
 
+// creer 
+    // public function CreateUser() {
+    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //         $username = $_POST['username'];
+    //         $email = $_POST['email'];
+    //         $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    //         $role_id= $_POST['role_id'];
 
+    //         if ($this->model->createUser($username, $email, $password,$role_id)) {
+    //             echo "User ajouté avec succès!";
+    //         } else {
+    //             echo "Erreur lors de l'ajout du contact.";
+    //         }
+    //     }// Récupérer les rôles depuis la base de données
+    //     $roles = $this->model->getRoles();
+    //     $users = $this->model->getAllUsers();
+    //     // print_r($users); // Affiche les utilisateurs pour vérifier
+    //     include '../views/admin/users.php';
+    // }
     
 }
+
+   <?php  foreach( $user as $profile): ?>
+                <h2 class="text-xl font-semibold">Your name </h2>
+                <p class="text-gray-500">yourname@gmail.com <?= $profile['username'] ?></p>
+            </div> 
+
+            <div class="py-4 space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-500"> Nom </span>
+                    <span>Your name <?= $profile['username'] ?></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Email</span>
+                    <span>yourname@gmail.com <?= $profile['email'] ?></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-500">Role</span>
+                    <span>Add number <?= $profile['role'] ?></span>
+                </div>
+               
+            </div>
+<?php endforeach; ?>

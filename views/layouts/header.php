@@ -14,11 +14,11 @@
             modal.classList.toggle('hidden');
             modal.classList.toggle('flex');
         }
-        function toggle2Modal() {
-            const modal = document.getElementById('editModal');
-            modal.classList.toggle('hidden');
-            modal.classList.toggle('flex');
-        }
+        // function toggle2Modal() {
+        //     const modal = document.getElementById('editModal');
+        //     modal.classList.toggle('hidden');
+        //     modal.classList.toggle('flex');
+        // }
     </script>
     
 </head>
