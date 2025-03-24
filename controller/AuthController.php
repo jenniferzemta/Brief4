@@ -54,7 +54,7 @@ class AuthController {
     // }
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'];
+            $email = trim($_POST['email']);
             $password = $_POST['password'];
     
             // Récupérer l'utilisateur par son nom d'utilisateur
@@ -90,38 +90,7 @@ class AuthController {
         include '../views/auth/login.php';
     }
 
-//     public function Login() {
-//         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//             $email = $_POST['email'];
-//             $password = $_POST['password'];
-
-//             $user = $this->model->getUserByEmail($email);
-
-//             if ($user && password_verify($password, $user['password'])) {
-//                 session_start();
-//                 $_SESSION['user_id'] = $user['id'];
-//                 $_SESSION['username'] = $user['username'];
-//                 $_SESSION['role'] = $user['role_id'];
-//                // $_SESSION['role']= $user['role_name'];
-//                $session_id = $this->sessionModel->logLogin($user['id']);
-//                $_SESSION['session_id'] = $session_id;
-
-//                 if ($user['role_id'] == 1){
-//                 header('Location: dashboard');
-//                 } elseif ($user['role_id'] == 2 ){
-//                     //echo "<script> alert('Connectez vous') </script>";
-//                     header('Location : home ');
-//                 }
-//                 exit();
-
-//             } else {
-//                 echo "<script>alert('Identifiants incorrects.')</script>";
-//                //header('Location : login');
-//             }
-//         } else {
-//             include '../views/auth/login.php';
-//         }
-//     }
+//   
 // // deconnexion
     public function logout() {
 

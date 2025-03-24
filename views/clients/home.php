@@ -48,19 +48,19 @@
             <h2 class="text-3xl font-bold text-center mb-8">Nos modèles de CV</h2>
             <div id="cv-carousel" class="grid md:grid-cols-3 gap-8 overflow-hidden">
                 <div class="cv-model bg-white p-4 shadow-lg rounded-lg text-center">
-                    <img src="images/p.jpg" alt="Modèle 2" class="w-full h-64 object-cover rounded-lg">
+                    <img src="../public/assets/images/p2.jpg" alt="Modèle 2" class="w-full h-64 object-cover rounded-lg">
                     <h3 class="text-xl font-semibold mt-4">Modèle Moderne</h3>
                     <button class="mt-4 bg-yellow-500 text-white px-4 py-2 rounded"><a href="../cv2.html">Choisir</a></button>
                 </div>
 
                 <div class="cv-model bg-white p-4 shadow-lg rounded-lg text-center">
-                    <img src="images/p2.jpg" alt="Modèle 3" class="w-full h-64 object-cover rounded-lg">
+                    <img src="../public/assets/images/p.jpg" alt="Modèle 3" class="w-full h-64 object-cover rounded-lg">
                     <h3 class="text-xl font-semibold mt-4">Modèle Classique</h3>
                     <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded"><a href="../in.html">Choisir</a></button>
                 </div>
                 
                 <div class="cv-model bg-white p-4 shadow-lg rounded-lg text-center">
-                    <img src="images/p1.jpg" alt="Modèle 1" class="w-full h-64 object-cover rounded-lg">
+                    <img src="../public/assets/images/p1.jpg" alt="Modèle 1" class="w-full h-64 object-cover rounded-lg">
                     <h3 class="text-xl font-semibold mt-4">Modèle Élégant</h3>
                     <button class="mt-4 bg-gray-900 text-white px-4 py-2 rounded"><a href= "../cv.html">Choisir</a></button>
                 </div>

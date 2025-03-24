@@ -25,7 +25,7 @@ include "C:/wamp64/www/CRUD/views/layouts/header.php";
 
         <!-- Menu déroulant caché par défaut -->
         <div id="dropdown" class="hidden absolute right-0 mt-10 w-40 bg-white border border-gray-300 rounded-lg shadow-lg ">
-            <a href="logout" class=" px-4 py-2 mt-10 text- hover:bg-gray-200">Déconnexion</a>
+            <a href="logout" class=" px-4 py-2 mt-10 text-[#0A05EB] hover:bg-gray-200">Déconnexion</a>
         </div>
                 </div>
             </div>

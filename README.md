@@ -38,8 +38,8 @@ executer le projet avec le fichier index.php
 placer le fichier dans votre htdocs de xammp ou www de wamp server 
 http://localhost/CRUD/public/index.php
 
-la partie admin connexion : horell06@gmail.com mdp: jjjj
+la partie client : horell06@gmail.com    mdp: Jennifer06
 
-partie client connexion : merveille08@gmail.com mdp: Jenn2
+partie admin connexion :laurejennifer06@gmail.com mdp: jjjj
 
 

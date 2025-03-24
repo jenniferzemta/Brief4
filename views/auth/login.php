@@ -12,11 +12,11 @@
         <form  method="POST">
             <div class="mb-4 pb-2">
                 <label for="email" class="block text-black font-mono">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter email" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" name="email" id="email" placeholder="Enter email" value="<?= htmlspecialchars($email ?? '') ?>"  class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
             </div>
             <div class="mb-4 pb-2">
                 <label for="password" class="block  text-black font-mono ">Password</label>
-                <input type="password" name="password"  id="password" placeholder="Enter Password" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" name="password"  id="password" value="<?= htmlspecialchars($password ?? '') ?>"  placeholder="Enter Password" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
             </div>
             <!-- <div class="flex justify-between items-center pb-2 mb-4">
                 <a href="#" class="text-sm font-mono text-right text-gray-500 hover:text-blue-600">Forgot password?</a>

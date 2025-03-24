@@ -42,7 +42,7 @@ include "C:/wamp64/www/CRUD/views/layouts/header.php";
             <div class="py-4 space-y-3">
                 <div class="flex justify-between">
                     <span class="text-gray-500">Nom</span>
-                    <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" class="border rounded p-1">
+                    <input type="text" name="username" minlength="4"  value="<?= htmlspecialchars($user['username']) ?>" class="border rounded p-1">
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500">Email</span>

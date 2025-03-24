@@ -31,9 +31,9 @@ include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
         <h2 class="text-2xl font-semibold mb-4">User Management</h2>
         
         <div class="flex space-x-4 mb-4">
-            <input type="text" placeholder="Staff Name" class="border p-2 rounded w-1/4">
-            <input type="text" placeholder="Role Name" class="border p-2 rounded w-1/4">
-            <input type="text" placeholder="Status" class="border p-2 rounded w-1/4">
+            <input type="text" placeholder="Name" class="border p-2 rounded w-1/4">
+            <input type="text" placeholder="Email" class="border p-2 rounded w-1/4">
+            <input type="text" placeholder="Role" class="border p-2 rounded w-1/4">
             <button class="bg-green-500 text-white p-2 rounded">SEARCH</button>
             <button id="ajouter" type="submit" class="w-48 py-2 text-white bg-gradient-to-r from-[#FF2F33] to-[#0A05EB] rounded-md hover:from-red-600 hover:to-blue-600" onclick="toggleModal()" >Ajouter</button>
         </div>
