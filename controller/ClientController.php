@@ -56,20 +56,23 @@ class ClientController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $username = $_POST['username'];
-            $password = $_POST['password'];
+           // $password = $_POST
+          
 
             // Mettre à jour l'utilisateur
-            if ($this->userModel->updateUserProfile($_SESSION['user_id'], $email, $username, $password)) {
-                echo "<script>alert('Profil mis à jour avec succès!');</script>";
-                header("Location: /profile");
+            if ($this->userModel->updateUserProfile($_SESSION['user_id'], $username, $email)) {
+                echo "<script>alert('Profil mis à jour avec succès!')</script>";
+                header("Location: profile");
                 exit();
             } else {
-                echo "<script>alert('Erreur lors de la mise à jour du profil.');</script>";
+                echo "<script>alert('Erreur lors de la mise à jour du profil.')</script>";
             }
         }
 
         // Afficher le formulaire de profil
         $user = $this->userModel->getUserById($_SESSION['user_id']);
-        include '../views/client/profile.php';
+        include '../views/clients/updateprofile.php';
     }
+
 }
+?>

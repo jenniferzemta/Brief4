@@ -23,7 +23,7 @@
             </div> -->
             <button type="submit" class="w-full py-2 text-white bg-gradient-to-r from-[#FF2F33] to-[#0A05EB] rounded-md hover:from-red-600 hover:to-blue-600">Login</button>
         </form>
-        <p class="mt-4 text-center font-sans text-gray-500">Don't have an account yet? <a href="register.php" class="text-blue-600 hover:underline">Register</a></p>
+        <!-- <p class="mt-4 text-center font-sans text-gray-500">Don't have an account yet? <a href="register.php" class="text-blue-600 hover:underline">Register</a></p> -->
     </div>
 </body>
 </html>

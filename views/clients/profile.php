@@ -43,16 +43,13 @@ include "C:/wamp64/www/CRUD/views/layouts/header.php";
                 </div>
                 <div class="flex justify-between">
                     <span class="text-gray-500">Password</span>
-                    <span><?= htmlspecialchars($user['password']) ?></span>
+                    <span> </span>
                 </div>
                 
-                <div class="flex justify-between">
-                    <span class="text-gray-500">Statut</span>
-                    <span><?= htmlspecialchars($user['status'])?></span>
-                </div>
+            
             </div>
 
-            <button class="w-1/3 mt-4 py-2 rounded-xl bg-gradient-to-r from-red-500 to-blue-500 text-white font-semibold">Modifier</button>
+            <button class="w-1/3 mt-4 py-2 rounded-xl bg-gradient-to-r from-red-600 to-[#0A05EB] text-white font-semibold"><a href="updateProfile" class="">Modifier</a></button>
             <button class="mt-4 bg-white text-blue-900 px-6 py-3 font-semibold rounded"> <a href="home" >
                  Retour</button>
         </div>

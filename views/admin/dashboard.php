@@ -43,6 +43,13 @@ include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
                     <h2 class="mt-2">Clients</h2>
                     <p class="text-3xl"><?= $clientCount ?></p>
                 </div>
+                <div class="bg-[#3886F2] p-6 text-white rounded-lg shadow-lg">
+                    <i class="fas fa-users fa-2x"></i>
+                    <h2 class="mt-2">Status</h2>
+                    <p class="text-3xl"></p>
+                </div>
+
+              
                 
             </div>
         </main>

@@ -115,10 +115,10 @@ public function createUser($username, $email, $password, $role_id) {
 
     // update profile
 
-    public function updateUserProfile($userId, $username, $email, $password) {
-        $sql = "UPDATE users SET username = :username, email = :email, password = :password  WHERE id = :id";
+    public function updateUserProfile($userId, $username, $email) {
+        $sql = "UPDATE users SET username = :username, email = :email WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute(['username' => $username, 'email' => $email,  'password' => $password, 'id' => $userId]);
+        return $stmt->execute(['username' => $username, 'email' => $email,'id' => $userId]);
     }
 
     

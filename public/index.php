@@ -19,7 +19,7 @@ $clientController= new ClientController($pdo);
 $pdo = new PDO("mysql:host=localhost;dbname=gestioncontact", "root", "");
 $userModel = new UserModel($pdo);
 
-$action = $_GET['action'] ?? 'CreateUser';
+$action = $_GET['action'] ?? 'login';
 
 //action php du controller
 switch ($action) {
@@ -66,12 +66,6 @@ switch ($action) {
     case 'logout':
         $authController->logout();
         break;
-   
-    // case 'updateUserRole':
-    //     $id = $_GET['id'];
-    //     $roleId = $_GET['role_id'];
-    //     $adminController->updateUserRole($id, $roleId);
-    //     break;
     case 'profile':
         $clientController->showProfile();
         break;
@@ -84,20 +78,11 @@ switch ($action) {
     case 'updateProfile':
         $clientController->updateProfile();
         break;
+    
     case 'history':
         $clientController->history();
         break;
   
-    //     case 'updateUserStatus':
-    //         $id = $_GET['id'];
-    //         $status = $_GET['status'];
-    //         $adminController->updateUserStatus($id, $status);
-    //         break;
-    // case 'updateUserRole':
-    //         $id = $_GET['id'];
-    //         $roleId = $_GET['role_id'];
-    //         $adminController->updateUserRole($id, $roleId);
-    //         break;
     // case 'profile':
     //         $userController->profile();
     //         break;

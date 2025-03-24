@@ -17,12 +17,12 @@ class AuthController {
             $role_id = $_POST['role_id'];
     
             if ($this->model->usernameExists($username)) {
-                echo " <script>Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.</script>";
+                echo " <script>alert('Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.')</script>";
             } else {
                 if ($this->model->createUser($username, $email, $password, $role_id)) {
-                    echo "<script> Utilisateur ajouté avec succès!</script>";
+                    echo "<script>alert(' Utilisateur ajouté avec succès!') </script>";
                 } else {
-                    echo "<script>Erreur lors de l'ajout de l'utilisateur.</script>";
+                    echo "<script>alert('Erreur lors de l'ajout de l'utilisateur.')</script>";
                 }
             }
         } else {
@@ -82,7 +82,7 @@ class AuthController {
                 }
                 exit();
             } else {
-                echo "Identifiants incorrects.";
+                echo "<script>alert('Identifiants incorrects.')</script>";
             }
         }
     
