@@ -23,4 +23,12 @@ class SessionModel {
         $stmt = $this->pdo->query("SELECT sessions.*, users.username FROM sessions JOIN users ON sessions.user_id = users.id ORDER BY sessions.login_time DESC");
         return $stmt->fetchAll();
     }
+
+    // rceuperer les logs de connexion par userid
+
+    public function getLogsByUserId($user_id) {
+        $stmt = $this->pdo->prepare("SELECT * FROM sessions WHERE user_id = ? ORDER BY login_time DESC");
+        $stmt->execute([$user_id]);
+        return $stmt->fetchAll();
+    }
 }

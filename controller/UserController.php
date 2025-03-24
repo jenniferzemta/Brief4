@@ -28,7 +28,7 @@ public function CreateUser() {
     } else {
         $roles = $this->model->getRoles();
            $users = $this->model->getAllUsers();
-         // print_r($users); // Affiche les utilisateurs pour vérifier
+          print_r($users); // Affiche les utilisateurs pour vérifier
         include '../views/admin/users.php';
     }
 }
@@ -45,7 +45,7 @@ public function CreateUser() {
 
 
         $user = $this->model->getUserById($_SESSION['user_id']);
-        include '../views/admin/profile.php';
+        include '../views/clients/profile.php';
     }
 
 
@@ -94,23 +94,6 @@ public function CreateUser() {
     } 
 
 
-//   updateProfile
-    // public function updateProfile() {
-    //     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    //         $username = $_POST['username'];
-    //         $email = $_POST['email'];
-    //         $password = $_POST['password'];
-
-    //         if ($this->model->updateUser($_SESSION['user_id'], $username, $email, $password)) {
-    //             header('Location: profile');
-    //         } else {
-    //             echo "Erreur lors de la mise à jour du profil.";
-    //         }
-    //     }
- 
-    // }
-//  dashboard
-         
     
     
 }

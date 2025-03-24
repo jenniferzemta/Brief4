@@ -26,7 +26,7 @@ include "C:/wamp64/www/CRUD/views/layouts/header.php";
     <?php
 include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
     ?>
-       
+       <!-- tableau -->
 <div class="container mx-auto p-8">
     <h1 class="text-3xl font-bold mb-6">Historique des Connexions</h1>
     <div class="bg-white p-6 rounded-lg shadow-md">
@@ -35,7 +35,7 @@ include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
             <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
                     <th class="py-3 px-6 text-left">ID</th>
                     <th class="py-3 px-6 text-left">Nom</th>
-                    <th class="py-3 px-6 text-left">Date</th>
+                    <!-- <th class="py-3 px-6 text-left">Date</th> -->
                     <th class="py-3 px-6 text-left">logintime</th>
                     <th class="py-3 px-6 text-left">logouttime</th>
                 </tr>
@@ -44,7 +44,9 @@ include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
             <tbody class="text-gray-600 text-sm font-light">
                 <?php foreach ($logs as $log): ?>
                     <tr class="border-b border-gray-200 hover:bg-gray-100" >
+                        <td class="py-3 text-left px-6"><?= htmlspecialchars ($log['id'] )?></td>
                         <td class="py-3 text-left px-6"><?= htmlspecialchars ($log['username'] )?></td>
+
                         <td class="py-3 px-6"><?= htmlspecialchars($log['login_time']) ?></td>
                         <td class="py-3 px-6"><?= htmlspecialchars($log['logout_time']) ?? 'En cours' ?></td>
                         
@@ -57,7 +59,7 @@ include "C:/wamp64/www/CRUD/views/layouts/sidebar.php";
 </div>
 
     </div>
-  
+  <!-- footer -->
     <?php
 include "C:/wamp64/www/CRUD/views/layouts/footer.php";
     ?>

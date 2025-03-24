@@ -1,14 +1,8 @@
- <!-- <div class="mb-4 pb-2">
-                <label for="confirm-password" class="block font-mono text-black">Confirm mdp</label>
-                <input type="password" id="confirm-password" placeholder="Confirmez le mot de passe" class="w-full p-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div> -->
+tailwind css
 
+ npm install tailwindcss @tailwindcss/cli
 
-
-creaation bd
-
-
-
+creation bd
 
 CREATE TABLE roles (
     id INT AUTO_INCREMENT PRIMARY KEY,

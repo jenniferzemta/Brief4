@@ -11,18 +11,20 @@ include "C:/wamp64/www/CRUD/views/layouts/header.php";
             <span class="font-bold text-xl">Digital Solutions</span>
         </div>
        
-
+        <?php if (isset($_SESSION['user_id'])):?> 
         <div class="flex items-center space-x-2">
         <div class="relative">
             <input type="text" placeholder="Search here" class="p-2 pl-20 rounded-lg text-black border border-gray-300" />
             <i class="fas fa-search absolute right-3 top-3 text-gray-500"></i>
         </div>
-
-            <span>Zemta Jennifer</span>
+        
+            <span>Zemta<?= $_SESSION['username'] ?></span>
             <i class="fas fa-user-circle fa-lg"></i>
             <i class="fas fa-chevron-down"></i>
         </div>
+        <?php endif ?>
     </div>
+   
 
     <!-- sidebar -->
 <?php

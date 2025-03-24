@@ -2,11 +2,11 @@
 
 class AuthController {
     private $model;
-  //  private $sessionModel;
+    private $sessionModel;
 
     public function __construct($pdo) {
         $this->model = new UserModel($pdo);
-        //$this->sessionModel = new SessionModel($pdo);
+        $this->sessionModel = new SessionModel($pdo);
         
     }
     public function Register() {
@@ -52,38 +52,83 @@ class AuthController {
     //         include '../views/auth/register.php';
     //     }
     // }
-
-    public function Login() {
+    public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
-
+    
+            // Récupérer l'utilisateur par son nom d'utilisateur
             $user = $this->model->getUserByEmail($email);
 
+            // Vérifier les identifiants
             if ($user && password_verify($password, $user['password'])) {
-                session_start();
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['role'] = $user['role_id'];
-                if ($user['role_id']== 1){
-                header('Location: CreateUser');
-                } else{
-                    echo "<script> Connectez vous</script>";
-                    header('Location : login ');
-                }
-                // $session_id = $this->sessionModel->logLogin($user['id']);
-                // $_SESSION['session_id'] = $session_id;
 
+                // Enregistrer les informations de l'utilisateur dans la session
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['role'] = $user['role_id'];
+    
+                // Enregistrer la session de connexion
+                $session_id = $this->sessionModel->logLogin($user['id']);
+                $_SESSION['session_id'] = $session_id;
+                
+               // $this->sessionModel->logLogin($user['id']);
+    
+                // Rediriger en fonction du rôle
+                if ($user['role_id'] == 1 ) {
+                    header('Location: dashboard');
+                } elseif ($user['role_id'] ==  2) {
+                    header('Location: home');
+                }
+                exit();
             } else {
                 echo "Identifiants incorrects.";
             }
-        } else {
-            include '../views/auth/login.php';
         }
+    
+        // Afficher la page de connexion
+        include '../views/auth/login.php';
     }
-// deconnexion
+
+//     public function Login() {
+//         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//             $email = $_POST['email'];
+//             $password = $_POST['password'];
+
+//             $user = $this->model->getUserByEmail($email);
+
+//             if ($user && password_verify($password, $user['password'])) {
+//                 session_start();
+//                 $_SESSION['user_id'] = $user['id'];
+//                 $_SESSION['username'] = $user['username'];
+//                 $_SESSION['role'] = $user['role_id'];
+//                // $_SESSION['role']= $user['role_name'];
+//                $session_id = $this->sessionModel->logLogin($user['id']);
+//                $_SESSION['session_id'] = $session_id;
+
+//                 if ($user['role_id'] == 1){
+//                 header('Location: dashboard');
+//                 } elseif ($user['role_id'] == 2 ){
+//                     //echo "<script> alert('Connectez vous') </script>";
+//                     header('Location : home ');
+//                 }
+//                 exit();
+
+//             } else {
+//                 echo "<script>alert('Identifiants incorrects.')</script>";
+//                //header('Location : login');
+//             }
+//         } else {
+//             include '../views/auth/login.php';
+//         }
+//     }
+// // deconnexion
     public function logout() {
+
         session_start();
         session_destroy();
+        
+        $this->sessionModel->logLogout($_SESSION['user_id']);
         header('Location: login');
     }
 }

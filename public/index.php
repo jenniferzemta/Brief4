@@ -1,22 +1,27 @@
 <?php
 // public/index.php
+session_start();
 
 require_once '../config/database.php';
 require_once '../controller/ContactController.php';
 require_once '../controller/UserController.php';
 require_once '../controller/AdminController.php';
 require_once '../controller/AuthController.php';
+require_once '../controller/ClientController.php';
 
 
 $controller = new ContactController($pdo);
 $controller2= new UserController($pdo);
 $adminController= new AdminController($pdo);
 $authController= new AuthController($pdo);
+$clientController= new ClientController($pdo);
+
 $pdo = new PDO("mysql:host=localhost;dbname=gestioncontact", "root", "");
 $userModel = new UserModel($pdo);
 
 $action = $_GET['action'] ?? 'CreateUser';
 
+//action php du controller
 switch ($action) {
     case 'ajouterContact':
         $controller->ajouterContact();
@@ -58,7 +63,6 @@ switch ($action) {
     case 'logs':
         $adminController->logs();
         break;
-
     case 'logout':
         $authController->logout();
         break;
@@ -69,19 +73,19 @@ switch ($action) {
     //     $adminController->updateUserRole($id, $roleId);
     //     break;
     case 'profile':
-        $controller2->profile();
+        $clientController->showProfile();
         break;
     case 'admin_logs':
         $adminController->logs();
          break;
-    case 'profile':
-        $controller2->profile();
+    case 'home':
+        $clientController->home();
         break;
     case 'updateProfile':
-        $userController->updateProfile();
+        $clientController->updateProfile();
         break;
     case 'history':
-        $userController->history();
+        $clientController->history();
         break;
   
     //     case 'updateUserStatus':

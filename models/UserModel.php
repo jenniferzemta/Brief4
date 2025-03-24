@@ -29,7 +29,7 @@ public function createUser($username, $email, $password, $role_id) {
         throw $e; // Relancez l'exception si ce n'est pas une violation de contrainte d'unicité
     }
 }
-    // update
+    // update user 
     public function updateUser($userId, $username, $email, $password, $role_id ,$status) {
         $sql = "UPDATE users SET username = :username, email = :email, password = :password , role_id = :role_id, status = :status  WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);
@@ -80,13 +80,18 @@ public function createUser($username, $email, $password, $role_id) {
         // include '../views/admin/dashboard.php';
     }
 
+    // public function getUserByEmail($email) {
+    //     $sql = "SELECT * FROM users WHERE email = :email";
+    //     $stmt = $this->pdo->prepare($sql);
+    //     $stmt->execute(['email' => $email]);
+    //     return $stmt->fetch(PDO::FETCH_ASSOC);
+    // }
     public function getUserByEmail($email) {
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute(['email' => $email]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $stmt = $this->pdo->prepare("SELECT users.*, roles.id as role_id FROM users JOIN roles ON users.role_id = roles.id WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch();
     }
-
+    // recuperer tous les users
        public function getAllUsers() {
         $sql = "SELECT users.id, users.username, users.email, roles.name AS role, users.status 
                 FROM users 
@@ -94,12 +99,7 @@ public function createUser($username, $email, $password, $role_id) {
         $stmt = $this->pdo->query($sql);
         return $stmt->fetchAll(PDO::FETCH_ASSOC); // Retourne un tableau associatif
     }
-    public function updateUserStatus($userId, $status) {
-        $sql = "UPDATE users SET status = :status WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute(['status' => $status, 'id' => $userId]);
-    }
-
+    
 
     // dashboard
     public function countAdmins() {
@@ -112,5 +112,14 @@ public function createUser($username, $email, $password, $role_id) {
         $stmt = $this->pdo->query("SELECT COUNT(*) as count FROM users WHERE role_id = (SELECT id FROM roles WHERE name = 'Client')");
         return $stmt->fetch()['count'];
     }
+
+    // update profile
+
+    public function updateUserProfile($userId, $username, $email, $password) {
+        $sql = "UPDATE users SET username = :username, email = :email, password = :password  WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute(['username' => $username, 'email' => $email,  'password' => $password, 'id' => $userId]);
+    }
+
     
 }
